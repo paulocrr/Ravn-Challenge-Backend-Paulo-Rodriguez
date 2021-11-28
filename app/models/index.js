@@ -1,6 +1,10 @@
 const dbConfig = require("../config/db.config.js");
 const Sequelize = require("sequelize");
 
+/**
+ * Connecting to the database
+ */
+
 const sequelize = new Sequelize(dbConfig.DB,dbConfig.USER,dbConfig.PASSWORD,{
     host: dbConfig.HOST,
     dialect: dbConfig.dialect,
@@ -8,13 +12,14 @@ const sequelize = new Sequelize(dbConfig.DB,dbConfig.USER,dbConfig.PASSWORD,{
     pool:dbConfig.pool
 });
 
-const db = {}
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-
 /**
- * Load tables into models
+ * Exporting de db object that containes the models and sequelize and Sequelize objects
  */
+
+const db = {
+    sequelize: sequelize,
+    Sequelize: Sequelize
+};
 
 db.authors = require("./author.model.js")(sequelize);
 db.books = require("./book.model.js")(sequelize);

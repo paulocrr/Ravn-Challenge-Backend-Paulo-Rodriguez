@@ -1,6 +1,11 @@
 const { DataTypes } = require("sequelize/dist");
 
-module.exports = (sequelize, Sequelize)=>{
+module.exports = (sequelize)=>{
+
+    /**
+     * Defining sale_items table
+     */
+
     const SaleItem = sequelize.define("sale_items", {
         book_id: {
             type: DataTypes.INTEGER,

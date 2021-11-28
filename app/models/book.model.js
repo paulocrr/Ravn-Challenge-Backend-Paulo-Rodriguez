@@ -1,12 +1,12 @@
 const { DataTypes } = require("sequelize/dist");
 
-module.exports = (sequelize)=>{
+module.exports = (sequelize) => {
+
+    /**
+     * Defining books table
+     */
+
     const Book = sequelize.define("books", {
-        // id: {
-        //     type: Sequelize.BIGINT,
-        //     primaryKey: true,
-        //     autoIncrement: true
-        // },
         author_id:{
             type: DataTypes.INTEGER,
             references: {
