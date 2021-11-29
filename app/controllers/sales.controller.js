@@ -17,6 +17,7 @@ const db = require("../models");
  * @param {*} res 
  */
 exports.getTotalAuthorSales = (req, res) => {
+
     const authorName = req.query.name ? req.query.name : "Lorelai Gilmore"; 
     db.sequelize.query(
         "SELECT name, SUM(sale_items.item_price) as price FROM sale_items\
@@ -25,8 +26,8 @@ exports.getTotalAuthorSales = (req, res) => {
         WHERE authors.name = ?\
         GROUP BY authors.name",
         {
-        replacements: [authorName],
-        type: QueryTypes.SELECT
+            replacements: [authorName],
+            type: QueryTypes.SELECT
         }
     ).then(data => {
         let statusCode = data.length === 0 ? 404: 200;
