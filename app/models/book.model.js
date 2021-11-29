@@ -19,9 +19,5 @@ module.exports = (sequelize) => {
         }
     });
 
-    Book.associate = function(models) {
-        Book.hasMany(models.Author, {foreignKey: 'author_id', as: 'author'});
-    };
-
     return Book;
 }

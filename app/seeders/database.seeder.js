@@ -33,7 +33,7 @@ function generateRandomIsbn(){
  */
 
 for(let authorId = 1; authorId<=NUMBER_OF_AUTHORS; authorId++){
-    let authorName = faker.name.findName();
+    let authorName = authorId === NUMBER_OF_AUTHORS ? "Lorelai Gilmore" : faker.name.findName();
     let dateBirth = faker.date.past();
     let numberOfBooks = Math.floor(Math.random()*10);
     let numberOfSales = Math.floor(Math.random()*50);

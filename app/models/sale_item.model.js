@@ -22,9 +22,5 @@ module.exports = (sequelize)=>{
         }
     });
 
-    SaleItem.associate = function(models) {
-        Book.hasMany(models.Book, {foreignKey: 'book_id', as: 'book'});
-    };
-
     return SaleItem;
 }

@@ -14,18 +14,19 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-db.sequelize.sync({force: true}).then(()=>{
-    console.log("Drop all tables");
-}).catch((error)=>{
-    console.error(error);
-})
 
-app.get("/",(req,res) => {
+app.get("/",(_,res) => {
     res.json({
         status: 200,
         body:{message: "Book Store Api"}
     });
 });
+
+/**
+ * Setting up the api routes
+ */
+require("./app/routes/application.routes.js")(app);
+
 
 const PORT = 8080;
 
