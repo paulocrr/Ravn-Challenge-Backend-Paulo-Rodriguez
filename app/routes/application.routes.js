@@ -8,7 +8,7 @@ module.exports = app => {
 
     router.get("/total/revenue", saleController.getTotalAuthorSales);
 
-    router.get("/revenue/author/top",authorController.top10RevenueAuthors);
+    router.get("/revenue/author/top",authorController.topNRevenueAuthors);
 
     app.use('/api',router);
 }

@@ -1,10 +1,10 @@
 const dbConfig = require("../config/db.config.js");
 const Sequelize = require("sequelize");
 
+
 /**
  * Connecting to the database
  */
-
 const sequelize = new Sequelize(dbConfig.DB,dbConfig.USER,dbConfig.PASSWORD,{
     host: dbConfig.HOST,
     dialect: dbConfig.dialect,
@@ -15,7 +15,6 @@ const sequelize = new Sequelize(dbConfig.DB,dbConfig.USER,dbConfig.PASSWORD,{
 /**
  * Exporting de db object that containes the models and sequelize and Sequelize objects
  */
-
 const db = {
     sequelize: sequelize,
     Sequelize: Sequelize

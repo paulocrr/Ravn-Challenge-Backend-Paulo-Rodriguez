@@ -1,6 +1,21 @@
 const { QueryTypes } = require('sequelize');
 const db = require("../models");
 
+
+/**
+ * Return the total sales revenue of an author filtered by the name, if you dont specify a name,
+ * then return the sales revenue of Lorelai Gilmore
+ * 
+ * Examples:
+ * With name parameter
+ * http://localhost:8080/api/total/revenue?name=Antoinette Bernier
+ * 
+ * Without name parameter
+ * http://localhost:8080/api/total/revenue
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
 exports.getTotalAuthorSales = (req, res) => {
     const authorName = req.query.name ? req.query.name : "Lorelai Gilmore"; 
     db.sequelize.query(

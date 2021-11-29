@@ -4,6 +4,7 @@ const Author = db.authors;
 const Book = db.books;
 const SaleItem = db.sale_items;
 
+
 /**
  * Use this const to change the number of author you want to generate
  */
@@ -31,19 +32,26 @@ function generateRandomIsbn(){
 /**
  * Seeder start
  */
-
 for(let authorId = 1; authorId<=NUMBER_OF_AUTHORS; authorId++){
+
+    /**
+     * Generating fake authors but and the end of the loop we generate and author called Lorelai Gilmore
+     */
     let authorName = authorId === NUMBER_OF_AUTHORS ? "Lorelai Gilmore" : faker.name.findName();
     let dateBirth = faker.date.past();
     let numberOfBooks = Math.floor(Math.random()*10);
     let numberOfSales = Math.floor(Math.random()*50);
 
+    
     authorsData.push({
         id: authorId,
         name: authorName,
         date_of_birth: dateBirth
     });
 
+    /**
+     * Generate n fake books with fake ISBN per author
+     */
     for (let booksPerAuthor = 0; booksPerAuthor < numberOfBooks; booksPerAuthor++) {
         let isbn = generateRandomIsbn();
 
@@ -53,6 +61,9 @@ for(let authorId = 1; authorId<=NUMBER_OF_AUTHORS; authorId++){
             isbn: isbn
         });
 
+        /**
+         * Generate m sales for each n book
+         */
         for (let sales = 0; sales < numberOfSales; sales++) {
             let clientName = faker.name.findName();
             let price = faker.commerce.price();
@@ -67,11 +78,13 @@ for(let authorId = 1; authorId<=NUMBER_OF_AUTHORS; authorId++){
     }
 
 }
+/**
+ *  Seeder Ends
+ */
 
 /**
  * Insert bulk data in each table
  */
-
 Author.bulkCreate(authorsData);
 Book.bulkCreate(booksData);
 SaleItem.bulkCreate(saleItemsData);
