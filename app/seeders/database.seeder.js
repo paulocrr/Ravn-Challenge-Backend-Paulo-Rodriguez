@@ -19,7 +19,7 @@ booksId = 1;
  * Generate a randon ISBN wich is a string with 10 digit each digit is a number from 0 to 9
  * @returns String
  */
-function generateRandomIsbn(){
+const generateRandomIsbn = () => {
     let isbn = "";
     for(let i = 0; i<10; i++){
         let digit = Math.floor(Math.random()*10);
