@@ -1,3 +1,7 @@
+/**
+ * Configuration variables for connecting to the database,
+ * change this if you have a diferent configuration
+ */
 module.exports = {
     HOST: "localhost",
     USER: "postgres",
