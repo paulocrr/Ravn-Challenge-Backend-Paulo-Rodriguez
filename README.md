@@ -56,7 +56,7 @@ This is a dokerize web api that provide information about a Book Store database,
 
 These instructions will cover usage information and for the docker container 
 
-## Prerequisities
+## Prerequisites
 
 In order to run this container you'll need docker installed.
 
