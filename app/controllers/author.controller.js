@@ -4,14 +4,14 @@ const Author = db.authors;
 
 
 /**
- * Return and array of authors order by their birthday, you can spececify a limit using the "limit" parameter
- * if you dont specify one by default the limit is 10
+ * Return and array of authors order by their birthday, you can spececify a limit using the "count" parameter
+ * if you dont specify one, the count by default is 10
  * 
  * Example:
- * With limit parameter
- * http://localhost:8080/api/authors/by/birth?limit=15
+ * With count parameter
+ * http://localhost:8080/api/authors/by/birth?count=15
  * 
- * Without limit parameter
+ * Without count parameter
  * http://localhost:8080/api/authors/by/birth
  * 
  * @param {*} req 
@@ -19,7 +19,7 @@ const Author = db.authors;
  */
 exports.authorsOderByBrith = (req,res) => {
 
-    const limit = req.query.limit ? req.query.limit : 10;
+    const limit = req.query.count ? req.query.count : 10;
 
     /**
      * SQL Query:
@@ -35,31 +35,31 @@ exports.authorsOderByBrith = (req,res) => {
         limit: limit
     })
     .then(data => {
-        let statusCode = data.length === 0 ? 404: 200;
+        let statusCode = data.length === 0 ? 404 : 200;
+        let message = data.length===0 ? "Authors not found" : "OK";
         res.status(statusCode).send({
             status: statusCode,
+            message: message,
             body: data
         });
     })
     .catch(err =>{
         res.status(400).send({
             status: 400,
-            body: {
-                message: err.message
-            }
+            message: err.message
         });
     });
 }
 
 /**
- * Return an array with the top n author with more revenue you can specify a limit using the "limit" parameter
- * if you dont specify a one the limit by default is 10
+ * Return an array with the top n author with more revenue you can specify a limit using the "count" parameter
+ * if you dont specify a one, the count by default is 10
  * 
  * Examples:
- * With limit parameter
- * http://localhost:8080/api/revenue/author/top?limit=5
+ * With count parameter
+ * http://localhost:8080/api/revenue/author/top?count=5
  * 
- * Without limit parameter
+ * Without count parameter
  * http://localhost:8080/api/revenue/author/top
  * 
  * @param {*} req 
@@ -67,7 +67,7 @@ exports.authorsOderByBrith = (req,res) => {
  */
 exports.topNRevenueAuthors = (req,res) => {
 
-    const limit = req.query.limit ? req.query.limit : 10;
+    const limit = req.query.count ? req.query.count : 10;
     db.sequelize.query(
         "SELECT authors.name, SUM(sale_items.item_price) as revenue FROM authors\
         JOIN books ON books.author_id = authors.id\
@@ -80,18 +80,18 @@ exports.topNRevenueAuthors = (req,res) => {
             type: QueryTypes.SELECT
         }
     ).then(data => {
-        let statusCode = data.length === 0 ? 404: 200;
+        let statusCode = data.length === 0 ? 404 : 200;
+        let message = data.length===0 ? "No authors revenue were not found" : "OK";
         res.status(statusCode).send({
             status: statusCode,
+            message: message,
             body: data
         });
     })
     .catch(err => {
         res.status(400).send({
             status: 400,
-            body: {
-                message: err.message
-            }
+            message: err.message
         });
     });
 }

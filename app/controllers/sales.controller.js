@@ -18,7 +18,15 @@ const db = require("../models");
  */
 exports.getTotalAuthorSales = (req, res) => {
 
-    const authorName = req.query.name ? req.query.name : "Lorelai Gilmore"; 
+    const authorName = req.query.name;
+    
+    if(!authorName){
+        res.status(400).send({
+            status: 400,
+            message: "You must specify the \"name\" parameter"
+        });
+    }
+    
     db.sequelize.query(
         "SELECT name, SUM(sale_items.item_price) as price FROM sale_items\
         JOIN books ON books.id = sale_items.book_id\
@@ -30,18 +38,18 @@ exports.getTotalAuthorSales = (req, res) => {
             type: QueryTypes.SELECT
         }
     ).then(data => {
-        let statusCode = data.length === 0 ? 404: 200;
+        let statusCode = data.length === 0 ? 404 : 200;
+        let message = data.length===0 ? "The author you are searching was not found" : "OK";
         res.status(statusCode).send({
             status: statusCode,
+            message: message,
             body: data
         });
     })
     .catch(err => {
         res.status(400).send({
             status: 400,
-            body: {
-                message: err.message
-            }
+            message: err.message
         });
     });
 }
