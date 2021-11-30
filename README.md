@@ -95,6 +95,7 @@ In order to use this container run de following steps:
     ```
     the server api is up correctly.
 
+
 <!-- BUILT WITH -->
 # Built With
 
@@ -128,7 +129,6 @@ If any of this api recieve a bad request or return and empty response you will g
 
 ### Request
 
-Ask top the n first authors ordered by their birthdate
 `GET /api/authors/by/birth?count=2`
 
 if dont specify the count parameter it will return the first 10 authors
@@ -171,63 +171,79 @@ if dont specify the count parameter it will return the first 10 authors
 
 ## Get the total sales of an author by their name
 
-Ask for the total sals of an specific author
-`GET /api/total/revenue?name=Clyde Wilderman`
+### Request
 
-if dont specify a name it will return
-1. Open a bash in the folder where you cloned the repository
-2. Navigate to the server folder
-    ```sh
-    cd github-list-commit-web-app/server
+`GET /api/total/revenue?name=Lorelai Gilmore`
+
+### Response
+
+    HTTP/1.1 200 OK
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: http://localhost:8080
+    Vary: Origin
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 335
+    ETag: W/"14f-W8qExrPykDok8tb/woSSe1mrq4Y"
+    Date: Tue, 30 Nov 2021 01:50:58 GMT
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+
+    ```json
+    {
+        "status": 200,
+        "message": "OK",
+        "body": [
+            {
+                "name": "Lorelai Gilmore",
+                "price": "46189.00"
+            }
+        ]
+    }
     ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Create a .env file and create a variable named GITHUB_ACCESS_TOKEN and copy and paste your github access personal token wich you created earlier , if you have doubts, consult the .env.example file for reference.
-   ```
-   GITHUB_ACCESS_TOKEN = <ENTER YOUR GITHUB ACCESS PERSONAL TOKEN>
-   ```
-5. Then start the server using the following command
-   ```sh
-   nodemon
-   ```
-6. The server will start in the following direction [http://localhost:3001/](http://localhost:3001/), if you enter to that url and you see the message Hello World in the browser you setup correctly de server enviroment.
 
-7. To test de API functionality enter the following url [http://localhost:3001/api/v1/commits](http://localhost:3001/api/v1/commits), if you see a json response with a status 200 attibute the api is working correctly.
+## Get the top n performing authors ranked by sales revenue
 
-### Client Installation
-1. Open a bash in the folder where you cloned the repository
-2. Navigate to the client folder
-    ```sh
-    cd github-list-commit-web-app/client
+### Request
+
+`GET /api/revenue/author/top?count=2`
+
+if dont specify the count parameter it will return the top 10 authors
+
+### Response
+
+    HTTP/1.1 200 OK
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: http://localhost:8080
+    Vary: Origin
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 140
+    ETag: W/"8c-7mTMcWo8UIbHIAXPp9UvXWxqsnc"
+    Date: Tue, 30 Nov 2021 02:32:00 GMT
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+
+    ```json
+    {
+        "status": 200,
+        "message": "OK",
+        "body": [
+            {
+                "name": "Miss Marcus Block",
+                "revenue": "196866.00"
+            },
+            {
+                "name": "Herbert Mante DDS",
+                "revenue": "169474.00"
+            }
+        ]
+    }
     ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Then start the react server using the following command
-   ```sh
-   npm start
-   ```
-5. The react server will start in the following direction [http://localhost:3000/](http://localhost:3000/), If you can see a UI like the one seen in the screenshot that is in this README then the react server is working correctly. 
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-The client interface shows a table of all the commits made in this repository, per commit shows the following data: the commit identifier, the date and time it was made, the name of the person who made it, the email of the person, the user (if you click on the username this will take you to your profile on github), and a button to see details, if you click on that button it will show you a modal showing the message that that commit had, the identifier complete and date. If you click on the name of the row you can sort the table with respect to that column, the columns that have a function are: Date, Name, Email, User. To have a better visibility, the table is paginated and by clicking on the arrows at the bottom of the table you can navigate between the different pages, you can also control the number of records shown per page.
-
-Also in the search field you can write part of a commit identifier and you will be able to see all the commits that that string contains in its identifier. Finally, if you click on the Clear button, what you wrote in the filter input will be deleted and all the commits will be displayed.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- CONTACT -->
-## Contact
+# Contact
 
 Paulo Rodriguez - [(Twitter) @paulo_crr](https://twitter.com/paulo_crr) - paulo_crr@hotmail.com
 
