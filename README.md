@@ -10,7 +10,7 @@
 <div align="center">
   <h3 align="center">Ravn Challenge Backend Paulo Rodriguez</h3>
   <p align="center">
-    This project is in both the frontend and the backend of an application to be able to see the commits that are made in this repository.
+    This is an API for the information retrieval of a book store database
   </p>
 </div>
 
