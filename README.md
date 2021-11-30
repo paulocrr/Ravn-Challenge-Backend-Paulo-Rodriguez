@@ -126,6 +126,8 @@ If any of this api recieve a bad request or return and empty response you will g
 }
 ```
 
+In development the root URL is http://localhost:8080
+
 ## Get authors order by birthdate
 
 ### Request
