@@ -35,7 +35,7 @@
             <li><a href="#database">Database</a></li>
         </ul>
     </li>
-    </li><a href="#rest-api">REST API</a></li>
+    <li><a href="#rest-api">REST API</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -136,28 +136,30 @@ if dont specify the count parameter it will return the first 10 authors
 
 ### Response
 
-    ```json
-    {
-        "status": 200,
-        "message": "OK",
-        "body": [
-            {
-                "id": 32,
-                "name": "Roxanne Reinger",
-                "date_of_birth": "2020-12-25T18:24:31.554Z",
-                "createdAt": "2021-11-29T23:47:37.741Z",
-                "updatedAt": "2021-11-29T23:47:37.741Z"
-            },
-            {
-                "id": 40,
-                "name": "Clyde Wilderman",
-                "date_of_birth": "2020-12-27T16:36:36.867Z",
-                "createdAt": "2021-11-29T23:47:37.741Z",
-                "updatedAt": "2021-11-29T23:47:37.741Z"
-            }
-        ]
-    }
-    ```
+ 
+
+```json
+{
+    "status": 200,
+    "message": "OK",
+    "body": [
+        {
+            "id": 32,
+            "name": "Roxanne Reinger",
+            "date_of_birth": "2020-12-25T18:24:31.554Z",
+            "createdAt": "2021-11-29T23:47:37.741Z",
+            "updatedAt": "2021-11-29T23:47:37.741Z"
+        },
+        {
+            "id": 40,
+            "name": "Clyde Wilderman",
+            "date_of_birth": "2020-12-27T16:36:36.867Z",
+            "createdAt": "2021-11-29T23:47:37.741Z",
+            "updatedAt": "2021-11-29T23:47:37.741Z"
+        }
+    ]
+}
+```
 
 ## Get the total sales of an author by their name
 
@@ -167,18 +169,20 @@ if dont specify the count parameter it will return the first 10 authors
 
 ### Response
 
-    ```json
-    {
-        "status": 200,
-        "message": "OK",
-        "body": [
-            {
-                "name": "Lorelai Gilmore",
-                "price": "46189.00"
-            }
-        ]
-    }
-    ```
+
+
+```json
+{
+    "status": 200,
+    "message": "OK",
+    "body": [
+        {
+            "name": "Lorelai Gilmore",
+            "price": "46189.00"
+        }
+    ]
+}
+```
 
 ## Get the top n performing authors ranked by sales revenue
 
@@ -190,22 +194,25 @@ if dont specify the count parameter it will return the top 10 authors
 
 ### Response
 
-    ```json
-    {
-        "status": 200,
-        "message": "OK",
-        "body": [
-            {
-                "name": "Miss Marcus Block",
-                "revenue": "196866.00"
-            },
-            {
-                "name": "Herbert Mante DDS",
-                "revenue": "169474.00"
-            }
-        ]
-    }
-    ```
+
+
+
+```json
+{
+    "status": 200,
+    "message": "OK",
+    "body": [
+        {
+            "name": "Miss Marcus Block",
+            "revenue": "196866.00"
+        },
+        {
+            "name": "Herbert Mante DDS",
+            "revenue": "169474.00"
+        }
+    ]
+}
+```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
