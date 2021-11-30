@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/",(_,res) => {
     res.json({
         status: 200,
-        body:{message: "Book Store Api"}
+        body:{message: "Welcome to my Book Store Api"}
     });
 });
 
@@ -29,9 +29,8 @@ app.get("/",(_,res) => {
  */
 require("./app/routes/application.routes.js")(app);
 
-
 const PORT = 8080;
 
-app.listen(PORT, ()=>{
+app.listen(process.env.EXTERNAL_PORT || PORT, ()=>{
     console.log(`Server running on port ${PORT}`);    
 })

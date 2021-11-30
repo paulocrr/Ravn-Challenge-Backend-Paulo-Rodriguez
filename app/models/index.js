@@ -6,7 +6,7 @@ const Sequelize = require("sequelize");
  * Connecting to the database
  */
 const sequelize = new Sequelize(dbConfig.DB,dbConfig.USER,dbConfig.PASSWORD,{
-    host: dbConfig.HOST,
+    host: process.env.PGHOST || dbConfig.HOST,
     dialect: dbConfig.dialect,
     operatorsAliases: 0,
     pool:dbConfig.pool
