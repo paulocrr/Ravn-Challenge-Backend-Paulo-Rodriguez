@@ -115,14 +115,23 @@ In order to use this container run de following steps:
 <!-- REST API -->
 # REST API
 
+If any of this api recieve a bad request or return and empty response you will get the corresponding HTTP status code with the following response:
+
+```json
+{
+    "status": <error-code>,
+    "message": "<Error Message>"
+}
+```
+
 ## Get authors order by birthdate
 
 ### Request
 
 Ask top the n first authors ordered by their birthdate
-`GET /api/authors/by/birth?limit=2`
+`GET /api/authors/by/birth?count=2`
 
-if dont specify the limit parameter it will return the first 10 authors
+if dont specify the count parameter it will return the first 10 authors
 
 ### Response
 
@@ -140,6 +149,7 @@ if dont specify the limit parameter it will return the first 10 authors
     ```json
     {
         "status": 200,
+        "message": "OK",
         "body": [
             {
                 "id": 32,
@@ -159,8 +169,12 @@ if dont specify the limit parameter it will return the first 10 authors
     }
     ```
 
-## 
+## Get the total sales of an author by their name
 
+Ask for the total sals of an specific author
+`GET /api/total/revenue?name=Clyde Wilderman`
+
+if dont specify a name it will return
 1. Open a bash in the folder where you cloned the repository
 2. Navigate to the server folder
     ```sh
