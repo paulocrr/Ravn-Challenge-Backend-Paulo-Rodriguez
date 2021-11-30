@@ -6,7 +6,7 @@ const db = require("../models");
  * Return the total sales revenue of an author filtered by the name
  * 
  * Examples:
- * http://localhost:8080/api/total/revenue?name=Antoinette Bernier
+ * http://localhost:8080/api/total/revenue?name=Lorelai%20Gilmore
  * 
  * 
  * @param {*} req 
