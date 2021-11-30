@@ -35,6 +35,7 @@
             <li><a href="#database">Database</a></li>
         </ul>
     </li>
+    </li><a href="#rest-api">REST API</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -62,8 +63,6 @@ In order to run this container you'll need docker installed.
 * [Windows](https://docs.docker.com/windows/started)
 * [OS X](https://docs.docker.com/mac/started/)
 * [Linux](https://docs.docker.com/linux/started/)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Usage
 
@@ -94,6 +93,8 @@ In order to use this container run de following steps:
     {"status":200,"body":{"message":"Welcome to my Book Store Api"}}
     ```
     the server api is up correctly.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- BUILT WITH -->
@@ -135,17 +136,6 @@ if dont specify the count parameter it will return the first 10 authors
 
 ### Response
 
-    HTTP/1.1 200 OK
-    X-Powered-By: Express
-    Access-Control-Allow-Origin: http://localhost:8080
-    Vary: Origin
-    Content-Type: application/json; charset=utf-8
-    Content-Length: 335
-    ETag: W/"14f-W8qExrPykDok8tb/woSSe1mrq4Y"
-    Date: Tue, 30 Nov 2021 01:50:58 GMT
-    Connection: keep-alive
-    Keep-Alive: timeout=5
-
     ```json
     {
         "status": 200,
@@ -177,17 +167,6 @@ if dont specify the count parameter it will return the first 10 authors
 
 ### Response
 
-    HTTP/1.1 200 OK
-    X-Powered-By: Express
-    Access-Control-Allow-Origin: http://localhost:8080
-    Vary: Origin
-    Content-Type: application/json; charset=utf-8
-    Content-Length: 335
-    ETag: W/"14f-W8qExrPykDok8tb/woSSe1mrq4Y"
-    Date: Tue, 30 Nov 2021 01:50:58 GMT
-    Connection: keep-alive
-    Keep-Alive: timeout=5
-
     ```json
     {
         "status": 200,
@@ -210,17 +189,6 @@ if dont specify the count parameter it will return the first 10 authors
 if dont specify the count parameter it will return the top 10 authors
 
 ### Response
-
-    HTTP/1.1 200 OK
-    X-Powered-By: Express
-    Access-Control-Allow-Origin: http://localhost:8080
-    Vary: Origin
-    Content-Type: application/json; charset=utf-8
-    Content-Length: 140
-    ETag: W/"8c-7mTMcWo8UIbHIAXPp9UvXWxqsnc"
-    Date: Tue, 30 Nov 2021 02:32:00 GMT
-    Connection: keep-alive
-    Keep-Alive: timeout=5
 
     ```json
     {
