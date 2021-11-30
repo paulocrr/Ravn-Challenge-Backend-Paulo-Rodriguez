@@ -42,9 +42,11 @@ exports.authorsOderByBrith = (req,res) => {
         });
     })
     .catch(err =>{
-        res.status(501).send({
-            status: 501,
-            body: err.message
+        res.status(400).send({
+            status: 400,
+            body: {
+                message: err.message
+            }
         });
     });
 }
@@ -85,9 +87,11 @@ exports.topNRevenueAuthors = (req,res) => {
         });
     })
     .catch(err => {
-        res.status(501).send({
-            status: 501,
-            body: err.message
+        res.status(400).send({
+            status: 400,
+            body: {
+                message: err.message
+            }
         });
     });
 }
